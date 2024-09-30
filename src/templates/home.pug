@@ -1,0 +1,15 @@
+doctype html 
+html(lang='en')
+    head
+        title Home Page
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Ryan Pereira')
+        meta(charset='UTF-8')
+        link(href='https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css' rel='stylesheet')
+        link(rel='stylesheet' type='text/css' href='/css/global.css')
+    body
+        h1#main-heading Simulated Process Manager
+        h3#author-heading Ryan Pereira
+        #table
+        canvas#results(width='300px' height='300px')
+        script(type='module' src='/scripts/dashboard.mjs')
