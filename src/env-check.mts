@@ -10,6 +10,8 @@ const envVars = [
     'HTTP_PORT',
     'DB_PORT',
 
+    'NODE_ENV'
+
 ] as const;
 type EnvVars = {
     [key in typeof envVars[number]]: string;

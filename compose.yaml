@@ -22,6 +22,7 @@ services:
       - DB_IP=$DB_IP
       - HTTP_PORT=$HTTP_PORT
       - DB_PORT=$DB_PORT
+      - NODE_ENV=$NODE_ENV
 
   mongo:
     image: mongo:latest

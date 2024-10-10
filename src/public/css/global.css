@@ -1,4 +1,20 @@
 
-h1#main-heading, h3#author-heading {
+.center {
     text-align: center;
+}
+
+div#bottom-section {
+    display: flex;
+    flex-direction: column;
+}
+
+ul#algType > li {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+
+}
+
+div#simError {
+    display: none;
 }

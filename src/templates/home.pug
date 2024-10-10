@@ -8,8 +8,43 @@ html(lang='en')
         link(href='https://unpkg.com/tabulator-tables@6.3.0/dist/css/tabulator.min.css' rel='stylesheet')
         link(rel='stylesheet' type='text/css' href='/css/global.css')
     body
-        h1#main-heading Simulated Process Manager
-        h3#author-heading Ryan Pereira
-        #table
-        canvas#results(width='300px' height='300px')
+        h1#main-heading.center Simulated Process Manager
+        h3#author-heading.center Ryan Pereira
+        p.center For simplicity, ensure that process IDs and times are between 0 - 255 (both inclusive).
+        div#table
+        div#bottom-section
+            canvas#results(width='300px' height='300px')
+            div#proc-mgr-config
+                div#simError
+                    p
+                div
+                    label(for='numCpus') Number of CPUs:
+                    input#numCpus(type='number' name='numCpus')
+                div
+                    label(for='algType') Algorithm:
+                    ul#algType
+                        li
+                            input#algTypeFIFO(type='radio' name='algType' value='0')
+                            label(for='algTypeFIFO') FIFO (FCFS)
+                        li
+                            input#algTypeLIFO(type='radio' name='algType' value='1')
+                            label(for='algTypeLIFO') LIFO (LCFS)
+                        li
+                            input#algTypeRR(type='radio' name='algType' value='2')
+                            label(for='algTypeRR') Round Robin
+                        li
+                            input#algTypeSJF(type='radio' name='algType' value='3')
+                            label(for='algTypeSJF') Shortest Job First
+                        li
+                            input#algTypeLJF(type='radio' name='algType' value='4')
+                            label(for='algTypeLJF') Longest Job First
+                div
+                    label(for='rrQuantum') Round Robin Time:
+                    input#rrQuantum(type='number' name='rrQuantum')
+                button#start-btn Start
+                p#queue-size Queue Size: 0
+                div#live-table
+        script(type='text/javascript' src='/webasm/procmgr.js')
         script(type='module' src='/scripts/dashboard.mjs')
+
+        

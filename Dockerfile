@@ -6,14 +6,12 @@ FROM node:latest
 WORKDIR /app/
 
 # copy files
-COPY ./src/ /app/src/
+COPY ./dist/ /app/dist/
 COPY ./package.json /app/package.json
 COPY ./package-lock.json /app/package-lock.json
-COPY ./tsconfig.json /app/tsconfig.json
-COPY ./build.sh /app/build.sh
 
 # build
-RUN ./build.sh
+RUN npm i
 
 # run
 EXPOSE 8080

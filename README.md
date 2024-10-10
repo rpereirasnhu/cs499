@@ -34,3 +34,9 @@ The default '.env' file included is sufficient for development purposes, althoug
 - DB_IP
 - HTTP_PORT
 - DB_PORT
+
+## Process Scheduling
+Essentially, each process scheduling algorithm step can be broken down into three loops:
+1. Move all starting processes from 'unstarted' list into process queue.
+2. Increment process run times and terminate finished processes. Also useful for transferring active processes back to queue for preemptive algorithms.
+3. Transfer queued processes to 'active' as intended by the specific algorithm.
