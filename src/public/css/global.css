@@ -1,6 +1,61 @@
 
+body {
+    margin: 0px;
+}
+
+body * {
+    font-family: system-ui, Arial;
+}
+
 .center {
     text-align: center;
+}
+
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.margin-bottom-small {
+    margin-bottom: 10px;
+}
+
+.float-right {
+    float: right;
+}
+
+header {
+    background-color: #cccccc;
+    padding: 10px 40px 10px 40px;
+}
+
+header > nav > ul {
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+header > nav > ul > li {
+    display: inline-block;
+    margin: 0px 20px 0px 0px;
+}
+
+header > nav > ul > li > a:link, header > nav > ul > li > a:visited, header > nav > ul > li > a:active, header > nav > ul > li > a:hover {
+    text-decoration: none;
+    color: #000000;
+    font-size: 16px;
+}
+
+header > nav > ul > li > a:hover {
+    color: #333333;
+}
+
+div#main-content {
+    padding: 20px;
+}
+
+label {
+    margin: 0px 10px 0px 0px;
 }
 
 div#bottom-section {
@@ -15,6 +70,22 @@ ul#algType > li {
 
 }
 
-div#simError {
+div#simErr {
     display: none;
+}
+
+div#procModRes {
+    display: none;
+}
+
+p#loginErr {
+    color: #ff0000;
+}
+
+form#loginForm {
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 5px 5px 3px #333333;
+    width: 500px;
+    padding: 8px 5px 8px 5px;
 }

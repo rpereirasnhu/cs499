@@ -1,10 +1,18 @@
-import { DeleteResult, Filter, FindCursor, InsertManyResult, MatchKeysAndValues, MongoClient, OptionalId, OptionalUnlessRequiredId, UpdateFilter, UpdateResult, WithId } from "mongodb";
+import { DeleteResult, Document, Filter, FindCursor, InsertManyResult, MatchKeysAndValues, MongoClient, OptionalId, OptionalUnlessRequiredId, UpdateFilter, UpdateResult, WithId } from "mongodb";
 
-export interface ProcessEntry {
+export interface ProcessEntry extends Document {
     pid: number;
     name: string;
+    owner: string;
     start_time: number;
     duration: number;
+}
+
+export interface User extends Document {
+    uid: number;
+    uname: string;
+    passwd_hash: string;
+    passwd_salt: string;
 }
 
 export class AppDb {

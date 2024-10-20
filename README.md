@@ -12,6 +12,7 @@ Although the backend can be started manually after transpilation and installing 
 ## Database
 
 The 'mongo-setup.js' script is copied into the MongoDB container. The 'mongo-setup.sh' script can be run to execute this script from the host while the service is running.
+There are two collections used: 'spm' and 'users', the former used to store process data and the latter used to store user authentication credentials (only one user is added). The default username is 'default' and the password is 'default123'. The backend logic may be verified by reinitializing the database data and setting alternative environment variables.
 
 ## Enhancement One - Software Engineering
 
@@ -36,6 +37,7 @@ The default '.env' file included is sufficient for development purposes, althoug
 - DB_PORT
 
 ## Process Scheduling
+
 Essentially, each process scheduling algorithm step can be broken down into three loops:
 1. Move all starting processes from 'unstarted' list into process queue.
 2. Increment process run times and terminate finished processes. Also useful for transferring active processes back to queue for preemptive algorithms.

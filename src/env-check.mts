@@ -5,6 +5,13 @@ const envVars = [
     'DB_APP_USER',
     'DB_APP_PASS',
 
+    'APP_DEFAULT_USER',
+    'APP_DEFAULT_PASS',
+    'APP_DEFAULT_SALT',
+
+    'APP_COOKIE_SECRET',
+    'APP_JWT_SECRET',
+
     'APP_IP',
     'DB_IP',
     'HTTP_PORT',

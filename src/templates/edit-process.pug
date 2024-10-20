@@ -1,0 +1,37 @@
+doctype html 
+html(lang='en')
+    head
+        title Edit Process
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Ryan Pereira')
+        meta(charset='UTF-8')
+        link(rel='stylesheet' type='text/css' href='/css/global.css')
+    body
+        include includes/header.pug
+        h1 Edit Process
+        p Blank fields will not be updated
+        div
+            div#procModRes
+                p
+            form(onsubmit='return editProcess()')
+                div
+                    label(for='in-orig-pid') Process ID
+                    input#in-orig-pid(type='number' name='orig_pid' required)
+                div
+                    label(for='in-pid') Process ID (Updated)
+                    input#in-pid(type='number' name='pid')
+                div
+                    label(for='in-name') Process Name
+                    input#in-name(type='text' name='name')
+                div
+                    label(for='in-owner') Process Owner
+                    input#in-owner(type='text' name='owner')
+                div
+                    label(for='in-start') Start Time (s)
+                    input#in-start(type='number' name='start_time')
+                div
+                    label(for='in-duration') Duration (s)
+                    input#in-duration(type='number' name='duration')
+                div
+                    input(type='submit' value='Submit')
+        script(type='text/javascript' src='/scripts/procmod.mjs')

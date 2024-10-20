@@ -1,0 +1,33 @@
+doctype html 
+html(lang='en')
+    head
+        title Add Process
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Ryan Pereira')
+        meta(charset='UTF-8')
+        link(rel='stylesheet' type='text/css' href='/css/global.css')
+    body
+        include includes/header.pug
+        h1 Add Process
+        div
+            div#procModRes
+                p
+            form(onsubmit='return addProcess()')
+                div
+                    label(for='in-pid') Process ID
+                    input#in-pid(type='number' name='pid' required)
+                div
+                    label(for='in-name') Process Name
+                    input#in-name(type='text' name='name' required)
+                div
+                    label(for='in-owner') Process Owner
+                    input#in-owner(type='text' name='owner' required)
+                div
+                    label(for='in-start') Start Time (s)
+                    input#in-start(type='number' name='start_time' required)
+                div
+                    label(for='in-duration') Duration (s)
+                    input#in-duration(type='number' name='duration' required)
+                div
+                    input(type='submit' value='Submit')
+        script(type='text/javascript' src='/scripts/procmod.mjs')

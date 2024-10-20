@@ -289,3 +289,13 @@ void sortProcessList(ProcessList* procList) {
     }
 }
 
+void freeProcessList(ProcessList procList) {
+
+    // free nodes
+    ProcessNode* procNode = procList.head;
+    while (procNode != NULL) {
+        ProcessNode* tmpNode = procNode;
+        procNode = procNode->next;
+        free(tmpNode);
+    }
+}

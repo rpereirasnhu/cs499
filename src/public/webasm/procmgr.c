@@ -101,8 +101,6 @@ void addFrame(ProcessManager* procMgr, char* frameStr) {
     } else
         strncat(frameStr, tmpStr, MAX_FRAME_STR_LEN);
 
-    // FREE
-
     // free temp strings
     free(tmpStr);
     free(tmpProcessStr);
@@ -344,6 +342,17 @@ char* getFrames(char* str) {
             break;
     }
 
+    // free process manager
+    freeProcessManager(procMgr);
+
     // return frames
     return frameStr;
+}
+
+void freeProcessManager(ProcessManager* procMgr) {
+
+    // free process lists
+    freeProcessList(procMgr->active);
+    freeProcessList(procMgr->queue);
+    freeProcessList(procMgr->unstarted);
 }

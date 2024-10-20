@@ -1,0 +1,21 @@
+doctype html 
+html(lang='en')
+    head
+        title Delete Process
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Ryan Pereira')
+        meta(charset='UTF-8')
+        link(rel='stylesheet' type='text/css' href='/css/global.css')
+    body
+        include includes/header.pug
+        h1 Delete Process
+        div
+            div#procModRes
+                p
+            form(onsubmit='return deleteProcess()')
+                div
+                    label(for='in-pid') Process ID
+                    input#in-pid(type='number' name='pid' required)
+                div
+                    input(type='submit' value='Submit')
+        script(type='text/javascript' src='/scripts/procmod.mjs')

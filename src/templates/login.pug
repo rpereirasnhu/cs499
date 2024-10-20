@@ -1,0 +1,20 @@
+doctype html 
+html(lang='en')
+    head
+        title Log In
+        meta(name='viewport' content='width=device-width, initial-scale=1.0')
+        meta(name='author' content='Ryan Pereira')
+        meta(charset='UTF-8')
+        link(rel='stylesheet' type='text/css' href='/css/global.css')
+    body
+        h1.center Log In
+        p#loginErr.center #{err}
+        div
+            form#loginForm.center-block(method='post' action='/login')
+                div.margin-bottom-small
+                    label(for='in-uname') Username:
+                    input#in-uname(type='text' name='uname')
+                div.margin-bottom-small
+                    label(for='in-passwd') Password:
+                    input#in-passwd(type='password' name='passwd')
+                input(type='submit' value='Log In')
