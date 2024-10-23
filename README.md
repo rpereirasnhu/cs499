@@ -12,7 +12,7 @@ Although the backend can be started manually after transpilation and installing 
 ## Database
 
 The 'mongo-setup.js' script is copied into the MongoDB container. The 'mongo-setup.sh' script can be run to execute this script from the host while the service is running.
-There are two collections used: 'spm' and 'users', the former used to store process data and the latter used to store user authentication credentials (only one user is added). The default username is 'default' and the password is 'default123'. The backend logic may be verified by reinitializing the database data and setting alternative environment variables.
+There are two collections used: 'spm' and 'users', the former used to store process data and the latter used to store user authentication credentials (only one user is added).
 
 ## Enhancement One - Software Engineering
 
@@ -23,6 +23,25 @@ Modules:
 - MongoDB (database driver)
 - Tabulator (client-side table display and behavior)
 - Chart.js (client-side graph displays)
+
+## Enhancement Two - Data Structures and Algorithms
+
+This enhancement is dedicated to the process scheduling aspects of the frontend.
+Essentially, each process scheduling algorithm step can be broken down into three loops:
+1. Move all starting processes from 'unstarted' list into process queue.
+2. Increment process run times and terminate finished processes. Also useful for transferring active processes back to queue for preemptive algorithms.
+3. Transfer queued processes to 'active' as intended by the specific algorithm.
+
+The C code must be compiled to WebAssembly during the build process. Emscripten can be installed using the instructions on the following page:
+https://emscripten.org/docs/getting_started/downloads.html
+
+This will clone the repository locally, and the build script should carry the rest (including the updates). As long as the repository is cloned here, the build script should work.
+
+## Enhancement Three - Databases
+
+This enhancement implements the authentication mechanism using the scrypt hash function and 24-hour JSON web tokens. This also adds the "owner" field for the pie chart to better represent data based on frequency. The "users" collection is also made useful through adding a default user if one doesn't already exist.
+The default username is 'default' and the password is 'default123'. The backend logic may be verified by reinitializing the database data and setting alternative environment variables.
+To remove the persistent database volume to reset the data, run 'docker volume rm spm_db_data' while the container is inactive.
 
 ## Environment
 
@@ -35,10 +54,3 @@ The default '.env' file included is sufficient for development purposes, althoug
 - DB_IP
 - HTTP_PORT
 - DB_PORT
-
-## Process Scheduling
-
-Essentially, each process scheduling algorithm step can be broken down into three loops:
-1. Move all starting processes from 'unstarted' list into process queue.
-2. Increment process run times and terminate finished processes. Also useful for transferring active processes back to queue for preemptive algorithms.
-3. Transfer queued processes to 'active' as intended by the specific algorithm.
