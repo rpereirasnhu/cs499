@@ -53,7 +53,7 @@ console.log(tableData);
 // setup table
 Tabulator.registerModule(EditModule);
 const mainTable = new Tabulator('#table', {
-    //height: 200,
+    height: 200,
     data: tableData,
     layout: 'fitColumns',
     columns: [
@@ -110,14 +110,14 @@ mainTable.on('cellEdited', cell => {
     fetch('/api/spm', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ orig_pid: cell.getRow().getCell('pid').getOldValue(), [cell.getColumn().getField()]: cell.getValue() })
+        body: JSON.stringify({ orig_pid: cell.getRow().getCell('pid').getOldValue() ?? cell.getRow().getCell('pid').getValue(), [cell.getColumn().getField()]: cell.getValue() })
     })
     .then(res => {
         if (!res.ok) cell.restoreOldValue();
         console.log(res.json());
     })
     .catch(console.error)
-    console.log({ pid: cell.getRow().getCell('pid').getValue(), [cell.getColumn().getField()]: cell.getValue() });
+    console.log({ pid: cell.getRow().getCell('pid').getOldValue(), [cell.getColumn().getField()]: cell.getValue() });
     console.log(`Updated to: ${cell.getValue()}`);
 });
 
@@ -182,12 +182,12 @@ const pieChart = new Chart(document.getElementById('results'), {
 
 // setup live process table
 const liveTable = new Tabulator('#live-table', {
-    //height: 200,
+    height: 300,
     data: [],
     layout: 'fitColumns',
     columns: [
-        { title: 'Process ID', field: 'pid' },
-        { title: 'Remaining Time (s)', field: 'remaining_time' }
+        { title: 'Process ID', field: 'pid', width: 150 },
+        { title: 'Remaining Time (s)', field: 'remaining_time', width: 150 }
     ]
 });
 
