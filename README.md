@@ -46,11 +46,15 @@ To remove the persistent database volume to reset the data, run 'docker volume r
 ## Environment
 
 The default '.env' file included is sufficient for development purposes, although it's intended to be configured for a secure environment. Variables involved with secrets and authentication should be changed to secure values in a production environment. Configuration variables exist for better customization, though some are limited to definitions made in the 'compose.yaml' configuration (e.g. IP address subnet and range). The following environment variables must be defined for the server to work:
-- DB_ROOT_USER
-- DB_ROOT_PASS
 - DB_APP_USER
 - DB_APP_PASS
+- APP_DEFAULT_USER
+- APP_DEFAULT_PASS
+- APP_DEFAULT_SALT
+- APP_COOKIE_SECRET
+- APP_JWT_SECRET
 - APP_IP
 - DB_IP
 - HTTP_PORT
 - DB_PORT
+- NODE_ENV
