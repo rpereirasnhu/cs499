@@ -8,12 +8,12 @@ html(lang='en')
         link(rel='stylesheet' type='text/css' href='/css/global.css')
     body
         include includes/header.pug
-        h1 Delete Process
-        div
+        div#main-content
+            h1 Delete Process
             div#procModRes
                 p
             form(onsubmit='return deleteProcess()')
-                div
+                div.margin-bottom-small
                     label(for='in-pid') Process ID
                     input#in-pid(type='number' name='pid' required)
                 div

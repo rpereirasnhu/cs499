@@ -8,28 +8,28 @@ html(lang='en')
         link(rel='stylesheet' type='text/css' href='/css/global.css')
     body
         include includes/header.pug
-        h1 Edit Process
-        p Blank fields will not be updated
-        div
+        div#main-content
+            h1 Edit Process
+            p Blank fields will not be updated
             div#procModRes
                 p
             form(onsubmit='return editProcess()')
-                div
+                div.margin-bottom-small
                     label(for='in-orig-pid') Process ID
                     input#in-orig-pid(type='number' name='orig_pid' required)
-                div
+                div.margin-bottom-small
                     label(for='in-pid') Process ID (Updated)
                     input#in-pid(type='number' name='pid')
-                div
+                div.margin-bottom-small
                     label(for='in-name') Process Name
                     input#in-name(type='text' name='name')
-                div
+                div.margin-bottom-small
                     label(for='in-owner') Process Owner
                     input#in-owner(type='text' name='owner')
-                div
+                div.margin-bottom-small
                     label(for='in-start') Start Time (s)
                     input#in-start(type='number' name='start_time')
-                div
+                div.margin-bottom-small
                     label(for='in-duration') Duration (s)
                     input#in-duration(type='number' name='duration')
                 div
